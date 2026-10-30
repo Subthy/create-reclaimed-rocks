@@ -5,11 +5,11 @@ import net.subthy.reclaimed_rocks.ReclaimedRocksMod;
 import net.subthy.reclaimed_rocks.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.*;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -44,55 +44,55 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockWithItem(ModBlocks.DOLOMITE_PAVED_BRICKS.get(), models().orientableWithBottom(ModBlocks.DOLOMITE_PAVED_BRICKS.getId().getPath(),
                 modLoc("block/dolomite_paved_bricks"),
                 modLoc("block/dolomite_paved_bricks"),
-                new ResourceLocation("reclaimed_rocks:block/dolomite_paved_bricks_top"),
+                ResourceLocation.parse("reclaimed_rocks:block/dolomite_paved_bricks_top"),
                 modLoc("block/dolomite_paved_bricks_top")));
 
         simpleBlockWithItem(ModBlocks.DOLOMITE_PILLAR.get(), models().orientableWithBottom(ModBlocks.DOLOMITE_PILLAR.getId().getPath(),
                 modLoc("block/dolomite_pillar"),
                 modLoc("block/dolomite_pillar"),
-                new ResourceLocation("reclaimed_rocks:block/dolomite_pillar_top"),
+                ResourceLocation.parse("reclaimed_rocks:block/dolomite_pillar_top"),
                 modLoc("block/dolomite_pillar_top")));
 
         simpleBlockWithItem(ModBlocks.DOLOMITE_CHISELED_BRICKS.get(), models().orientableWithBottom(ModBlocks.DOLOMITE_CHISELED_BRICKS.getId().getPath(),
                 modLoc("block/dolomite_chiseled_bricks"),
                 modLoc("block/dolomite_chiseled_bricks"),
-                new ResourceLocation("reclaimed_rocks:block/dolomite_chiseled_bricks_top"),
+                ResourceLocation.parse("reclaimed_rocks:block/dolomite_chiseled_bricks_top"),
                 modLoc("block/dolomite_chiseled_bricks_top")));
             // WEATHERED_LIMESTONE
         simpleBlockWithItem(ModBlocks.WEATHERED_LIMESTONE_PAVED_BRICKS.get(), models().orientableWithBottom(ModBlocks.WEATHERED_LIMESTONE_PAVED_BRICKS.getId().getPath(),
                 modLoc("block/weathered_limestone_paved_bricks"),
                 modLoc("block/weathered_limestone_paved_bricks"),
-                new ResourceLocation("reclaimed_rocks:block/weathered_limestone_paved_bricks_top"),
+                ResourceLocation.parse("reclaimed_rocks:block/weathered_limestone_paved_bricks_top"),
                 modLoc("block/weathered_limestone_paved_bricks_top")));
 
         simpleBlockWithItem(ModBlocks.WEATHERED_LIMESTONE_PILLAR.get(), models().orientableWithBottom(ModBlocks.WEATHERED_LIMESTONE_PILLAR.getId().getPath(),
                 modLoc("block/weathered_limestone_pillar"),
                 modLoc("block/weathered_limestone_pillar"),
-                new ResourceLocation("reclaimed_rocks:block/weathered_limestone_pillar_top"),
+                ResourceLocation.parse("reclaimed_rocks:block/weathered_limestone_pillar_top"),
                 modLoc("block/weathered_limestone_pillar_top")));
 
         simpleBlockWithItem(ModBlocks.WEATHERED_LIMESTONE_CHISELED_BRICKS.get(), models().orientableWithBottom(ModBlocks.WEATHERED_LIMESTONE_CHISELED_BRICKS.getId().getPath(),
                 modLoc("block/weathered_limestone_chiseled_bricks"),
                 modLoc("block/weathered_limestone_chiseled_bricks"),
-                new ResourceLocation("reclaimed_rocks:block/weathered_limestone_chiseled_bricks_top"),
+                ResourceLocation.parse("reclaimed_rocks:block/weathered_limestone_chiseled_bricks_top"),
                 modLoc("block/weathered_limestone_chiseled_bricks_top")));
             // GABBRO
         simpleBlockWithItem(ModBlocks.GABBRO_PAVED_BRICKS.get(), models().orientableWithBottom(ModBlocks.GABBRO_PAVED_BRICKS.getId().getPath(),
                 modLoc("block/gabbro_paved_bricks"),
                 modLoc("block/gabbro_paved_bricks"),
-                new ResourceLocation("reclaimed_rocks:block/gabbro_paved_bricks_top"),
+                ResourceLocation.parse("reclaimed_rocks:block/gabbro_paved_bricks_top"),
                 modLoc("block/gabbro_paved_bricks_top")));
 
         simpleBlockWithItem(ModBlocks.GABBRO_PILLAR.get(), models().orientableWithBottom(ModBlocks.GABBRO_PILLAR.getId().getPath(),
                 modLoc("block/gabbro_pillar"),
                 modLoc("block/gabbro_pillar"),
-                new ResourceLocation("reclaimed_rocks:block/gabbro_pillar_top"),
+                ResourceLocation.parse("reclaimed_rocks:block/gabbro_pillar_top"),
                 modLoc("block/gabbro_pillar_top")));
 
         simpleBlockWithItem(ModBlocks.GABBRO_CHISELED_BRICKS.get(), models().orientableWithBottom(ModBlocks.GABBRO_CHISELED_BRICKS.getId().getPath(),
                 modLoc("block/gabbro_chiseled_bricks"),
                 modLoc("block/gabbro_chiseled_bricks"),
-                new ResourceLocation("reclaimed_rocks:block/gabbro_chiseled_bricks_top"),
+                ResourceLocation.parse("reclaimed_rocks:block/gabbro_chiseled_bricks_top"),
                 modLoc("block/gabbro_chiseled_bricks_top")));
         // Slab
             // Dolomite
@@ -214,11 +214,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         wallBlock((WallBlock) ModBlocks.GABBRO_LAYERED_WALL.get(), blockTexture(ModBlocks.GABBRO_LAYERED_BLOCK.get()));
     }
 
-    private void blockItem(RegistryObject<Block> blockRegistryObject) {
-        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("reclaimed_rocks:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
+    private void blockItem(DeferredBlock<Block> blockRegistryObject) {
+        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("reclaimed_rocks:block/" + BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath()));
     }
 
-    private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
+    private void blockWithItem(DeferredBlock<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
     }
 }

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "reclaimed_rocks:weathered_limestone"
-  },
-  "result": "reclaimed_rocks:weathered_limestone_layered_wall"
-}

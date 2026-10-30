@@ -1,5 +1,5 @@
-// 1.20.1	2024-06-15T13:13:11.9170331	Block Tags
-4888077bdd2d07c7752850d1ae630cebb0925088 data/minecraft/tags/blocks/mineable/pickaxe.json
-69bd55221c0473b53facb6f6b34d7058a9ae9e78 data/minecraft/tags/blocks/slabs.json
-01f0da413403036c8b2ba1447ab65589ccdc80c6 data/minecraft/tags/blocks/stairs.json
-295948b3aa81f05d77449550534cba118aa7f4f6 data/minecraft/tags/blocks/walls.json
+// 1.21.1	2026-10-31T00:13:54.2084379	Block Tags
+4888077bdd2d07c7752850d1ae630cebb0925088 data/minecraft/tags/block/mineable/pickaxe.json
+69bd55221c0473b53facb6f6b34d7058a9ae9e78 data/minecraft/tags/block/slabs.json
+01f0da413403036c8b2ba1447ab65589ccdc80c6 data/minecraft/tags/block/stairs.json
+295948b3aa81f05d77449550534cba118aa7f4f6 data/minecraft/tags/block/walls.json

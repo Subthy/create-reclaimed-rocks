@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "reclaimed_rocks:weathered_limestone"
+  },
+  "result": {
+    "count": 1,
+    "id": "reclaimed_rocks:weathered_limestone_fancy_brick_wall"
+  }
+}

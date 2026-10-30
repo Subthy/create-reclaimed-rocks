@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "reclaimed_rocks:dolomite"
-  },
-  "result": "reclaimed_rocks:dolomite_paved_brick_slab"
-}

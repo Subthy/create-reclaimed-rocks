@@ -1,7 +1,7 @@
-// 1.20.1	2024-01-13T15:13:39.0120951	Registries
-4d57d82a51b1f359630d6101f787ee6f9d25d834 data/reclaimed_rocks/forge/biome_modifier/add_dolomite.json
-b06d21f16814b4965dba72504bcdfe7f5205d30c data/reclaimed_rocks/forge/biome_modifier/add_gabbro.json
-f8d364a9caaf70c65d2cad2f653628fd0c995a76 data/reclaimed_rocks/forge/biome_modifier/add_weathered_limestone.json
+// 1.21.1	2026-10-31T00:13:54.2205284	Registries
+06076f1288d7b970c85baaf0fa423ea7c7e709f7 data/reclaimed_rocks/neoforge/biome_modifier/add_dolomite.json
+fd854e22fb81ab83a10f9e97847e376e6b91b545 data/reclaimed_rocks/neoforge/biome_modifier/add_gabbro.json
+e0e48fc03b02f436dee2f339a47f9a280ca9ba8d data/reclaimed_rocks/neoforge/biome_modifier/add_weathered_limestone.json
 f73af5324c1a67121836943dbdf11c4594918462 data/reclaimed_rocks/worldgen/configured_feature/dolomite.json
 6921eebb6adc9603d7f074a0bbc1f25db9c014a1 data/reclaimed_rocks/worldgen/configured_feature/gabbro.json
 493c2614f1d073f07e5ea3c8bec424245dbb12e7 data/reclaimed_rocks/worldgen/configured_feature/weathered_limestone.json

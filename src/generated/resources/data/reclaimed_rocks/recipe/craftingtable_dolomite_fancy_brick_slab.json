@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "reclaimed_rocks:dolomite_fancy_bricks"
+    }
+  },
+  "pattern": [
+    "AA"
+  ],
+  "result": {
+    "count": 2,
+    "id": "reclaimed_rocks:dolomite_paved_brick_slab"
+  }
+}

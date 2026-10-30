@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "dolomite",
+  "ingredient": {
+    "item": "reclaimed_rocks:dolomite_cobblestone"
+  },
+  "result": {
+    "count": 1,
+    "id": "reclaimed_rocks:dolomite"
+  }
+}

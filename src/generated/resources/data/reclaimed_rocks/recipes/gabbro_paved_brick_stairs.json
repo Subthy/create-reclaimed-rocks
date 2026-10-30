@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "reclaimed_rocks:gabbro"
-  },
-  "result": "reclaimed_rocks:gabbro_paved_brick_stairs"
-}

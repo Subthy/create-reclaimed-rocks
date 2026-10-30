@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "reclaimed_rocks:dolomite"
+  },
+  "result": {
+    "count": 1,
+    "id": "reclaimed_rocks:dolomite_fancy_brick_slab"
+  }
+}

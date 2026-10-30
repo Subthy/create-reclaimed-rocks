@@ -1,31 +1,25 @@
 package net.subthy.reclaimed_rocks;
 
 import com.mojang.logging.LogUtils;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ConfigTracker;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.subthy.reclaimed_rocks.block.ModBlocks;
 import net.subthy.reclaimed_rocks.config.ReclaimedRocksCommonConfigs;
 import net.subthy.reclaimed_rocks.item.ModCreativeModeTabs;
 import net.subthy.reclaimed_rocks.item.ModItems;
 import org.slf4j.Logger;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.nio.file.Path;
-
-// The value here should match an entry in the META-INF/mods.toml file
+// The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(ReclaimedRocksMod.MOD_ID)
 public class ReclaimedRocksMod {
     // Define mod id in a common place for everything to reference
@@ -33,9 +27,7 @@ public class ReclaimedRocksMod {
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public ReclaimedRocksMod() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+    public ReclaimedRocksMod(IEventBus modEventBus, ModContainer modContainer) {
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
@@ -43,26 +35,12 @@ public class ReclaimedRocksMod {
 
         modEventBus.addListener(this::commonSetup);
 
-        MinecraftForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReclaimedRocksCommonConfigs.SPEC,"Reclaimed_Rocks-common.toml");
-
-        ModConfig commonConfig = ConfigTracker.INSTANCE.configSets().get(ModConfig.Type.COMMON)
-                .stream()
-                .filter(modConfig -> modConfig.getModId().equals(MOD_ID))
-                .findFirst()
-                .orElseThrow(IllegalStateException::new);
-        Method openConfig;
-        try {
-            openConfig = ConfigTracker.INSTANCE.getClass().getDeclaredMethod("openConfig", ModConfig.class, Path.class);
-            openConfig.setAccessible(true);
-            openConfig.invoke(ConfigTracker.INSTANCE, commonConfig, FMLPaths.CONFIGDIR.get());
-            openConfig.setAccessible(false);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException exception) {
-            throw new RuntimeException(exception);
-        }
-
+        // STARTUP configs are loaded as soon as they are registered, so the vein sizes are
+        // available to the worldgen bootstrap during data generation.
+        modContainer.registerConfig(ModConfig.Type.STARTUP,ReclaimedRocksCommonConfigs.SPEC, "Reclaimed_Rocks-common.toml");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -80,7 +58,7 @@ public class ReclaimedRocksMod {
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {

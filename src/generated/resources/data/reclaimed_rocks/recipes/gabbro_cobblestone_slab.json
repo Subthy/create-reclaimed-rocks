@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "reclaimed_rocks:gabbro_cobblestone"
-  },
-  "result": "reclaimed_rocks:gabbro_cobblestone_slab"
-}

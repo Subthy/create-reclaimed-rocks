@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_WEATHERED_LIMESTONE": {
+      "conditions": {
+        "items": [
+          {
+            "items": "reclaimed_rocks:weathered_limestone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "reclaimed_rocks:weathered_limestone_fancy_brick_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_WEATHERED_LIMESTONE"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "reclaimed_rocks:weathered_limestone_fancy_brick_wall"
+    ]
+  }
+}
